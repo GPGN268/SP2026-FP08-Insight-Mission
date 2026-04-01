@@ -19,17 +19,20 @@ The Primary Seismic Bundle:
 - Project Use: Used to extract high-frequency waveforms for local events to perform manual phase picking and spectral analysis.
 - Publisher: PDS Geosciences (GEO) Node
 - DOI: 10.17189/1517570
+- https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/
   
 Marsquake Service (MQS) Catalog:
 - Description: A derived event catalog containing metadata for all detected marsquakes, including quality ratings and distance estimates.
 - Project Use: Provides the "start times" for $P$ and $S$ wave arrivals, which are the fundamental variables for calculating our $V_p/V_s$ ratios.
 - Publisher: ETH Zürich (Swiss Federal Institute of Technology)
 - DOI: 10.12686/a21
+- https://www.insight.ethz.ch/en/seismicity/catalog/v14/
   
 Derived Interior Models:
 - Description: A collection of 1D seismic velocity models (Vp and Vs vs. Depth) developed by the mission’s science team.
 - Project Use: Serves as the Control Group. We will compare our calculated ratios against these "dry" models to identify anomalies that suggest volatile-rich zones.
 - Collection LID: urn:nasa:pds:insight_seis:data_derivedKey
+- https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/data_derived/
   
 ## Planned Approach
 ## Anticipated Challenges
