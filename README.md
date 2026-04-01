@@ -14,5 +14,22 @@ There are multiple public repositories on github that I think would be useful fo
 
 We can access our data at pds.nasa.gov which contains the InSight SEIS Data Archive Online. This archive contains an overwhelming amount of data, so we will have to set aside time to determine what datasets are most beneficial for our project. This dataset also contains multiple levels of data. The set includes raw data that contains noise, processed data that has been denoised, and derived products. The dataset also contains environmental data, event catalogs, and interior models. The most useful data types for our project will be derived products in the event catalog and interior model sections. Most importantly, we need data that analyzes P-wave velocities, S-wave velocities, Vp/Vs ratios, and crustal layering models. I think we will need help searching through this data and downloading it in a form we can use, but once we figure it out there will be many ways to graph and compare the P and S wave velocities!
 ## Datasets
+The Primary Seismic Bundle: 
+- Description: Includes raw waveforms, ASCII tables, and the crucial "Derived" products like velocity models.
+- Project Use: Used to extract high-frequency waveforms for local events to perform manual phase picking and spectral analysis.
+- Publisher: PDS Geosciences (GEO) Node
+- DOI: 10.17189/1517570
+  
+Marsquake Service (MQS) Catalog:
+- Description: A derived event catalog containing metadata for all detected marsquakes, including quality ratings and distance estimates.
+- Project Use: Provides the "start times" for $P$ and $S$ wave arrivals, which are the fundamental variables for calculating our $V_p/V_s$ ratios.
+- Publisher: ETH Zürich (Swiss Federal Institute of Technology)
+- DOI: 10.12686/a21
+  
+Derived Interior Models:
+- Description: A collection of 1D seismic velocity models (Vp and Vs vs. Depth) developed by the mission’s science team.
+- Project Use: Serves as the Control Group. We will compare our calculated ratios against these "dry" models to identify anomalies that suggest volatile-rich zones.
+- Collection LID: urn:nasa:pds:insight_seis:data_derivedKey
+  
 ## Planned Approach
 ## Anticipated Challenges
