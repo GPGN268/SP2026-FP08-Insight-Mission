@@ -1,5 +1,8 @@
 # SP2026-FP08-Insight-Mission
-petraelrod42, shelbylaneee, addypeterson
+## Names & Handles
+* Petra Elrod (petraelrod42) 
+* Shelby Layne (shelbylaneee) 
+* Addy Peterson (addypeterson)
 ## Problem Statement
   Geophysics plays a significant role in revealing evidence of water on Mars. One piece of geophysical evidence particularly useful is seismology data from NASA's InSight mission. InSight studied the deep interior of Mars by studying seismic activity as well as heat flow. The InSight mission discovered that Mars has three layers: the crust, mantle, and core. InSight also discovered that Mars lacks active tectonic plates because the planet has essentially cooled off. Despite this fact, InSight discovered something contradictory: Mars has “earthquakes” even though there are no tectonic plates to cause them. These marsquakes are created because the Martian crust shrinks and breaks as it cools. These seismic waves also produce distinct signals when they pass through rock versus when they pass through water. For example, P waves travel through both liquids and solids while S waves can only travel through solids. These marsquakes proved to be very important for investigating water in the Martian subsurface, because marsquakes and meteoroid impacts are the only source of seismic activity on the planet, unlike Earth where we can produce our own seismic waves for investigation.
     
@@ -27,5 +30,8 @@ Derived Interior Models:
 - https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/data_derived/
 
 ## Tools and Packages
+* Python
+* Numpy
+* Matplotlib
 ## Planned Approach
 ## Anticipated Challenges
