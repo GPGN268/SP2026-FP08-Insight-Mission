@@ -47,5 +47,8 @@ Our control group was the Derived Interior Models, so we can compare our ratios 
 **Last, we synthesize our results and map.**
 By mapping our results, we should be able to see any areas with a pattern of volatiles to determine high-probability zones for water, like specific areas or depths. 
 
-
 ## Anticipated Challenges
+
+**No triangulation:** On Earth, multiple stations help to triangulate the exact location of a quake. InSight is one lander, so it is difficult to approximate distance or location. Our Vp/Vs ratios might be relatively accurate, but we will likely have a hard time mapping since we only have one source of data. 
+
+**Data volume:** The volume and format of data is extremely dense. Many pieces of data come in MiniSEED format, or in different formats for each dataset, so we will need to convert them to more readable files that are compatible with each other in order to make comparisons. To do this, we may need to find other geophysics software that would do the heavy lifting.
