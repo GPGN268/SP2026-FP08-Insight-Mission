@@ -30,9 +30,10 @@ Derived Interior Models:
 - https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/data_derived/
 
 ## Tools and Packages
-* Python
-* Numpy
-* Matplotlib
+* Python (https://www.python.org/downloads/)
+* Numpy (https://numpy.org/)
+* Matplotlib (https://matplotlib.org/)
+* Pandas (https://pandas.pydata.org/)
 ## Planned Approach
 
 **First, identify high quality events.**
