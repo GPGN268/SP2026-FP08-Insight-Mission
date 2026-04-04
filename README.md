@@ -34,4 +34,11 @@ Derived Interior Models:
 * Numpy
 * Matplotlib
 ## Planned Approach
+
+**First, identify high quality events.**
+The MQS Catalog gives quality ratings. We should only use high-quality events, then cross-reference times with the Primary Seismic Bundle to view their raw data. We have found [ObsPy] (https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
+
+**Then, find the velocity ratio (Vp/Vs)**
+
+
 ## Anticipated Challenges
