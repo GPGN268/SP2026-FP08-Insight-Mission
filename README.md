@@ -36,9 +36,16 @@ Derived Interior Models:
 ## Planned Approach
 
 **First, identify high quality events.**
-The MQS Catalog gives quality ratings. We should only use high-quality events, then cross-reference times with the Primary Seismic Bundle to view their raw data. We have found [ObsPy] (https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
+The MQS Catalog gives quality ratings. We should only use high-quality events, then cross-reference times with the Primary Seismic Bundle to view their raw data. We have found [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
 
-**Then, find the velocity ratio (Vp/Vs)**
+**Then, find the velocity ratio (Vp/Vs).**
+Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). S-waves lag behind the P-waves, so the rate that the S-waves fall behind over a certain distance should give us a ratio of their velocities. We can then compare the calculated ratios to the known ratios for different materials to determine any changes.
+
+**Next, compare against the control gorup.**
+Our control group was the Derived Interior Models, so we can compare our ratios to the ratios from the control group to find any discrepencies. If our ratios do not match the Derived Interior Models, we could have evidence for a volatile zone.
+
+**Last, we synthesize our results and map.**
+By mapping our results, we should be able to see any areas with a pattern of volatiles to determine high-probability zones for water, like specific areas or depths. 
 
 
 ## Anticipated Challenges
