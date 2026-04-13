@@ -29,6 +29,10 @@ Derived Interior Models:
 - Collection LID: urn:nasa:pds:insight_seis:data_derivedKey
 - https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/data_derived/
 
+UMD Inisght seismic data downloader:
+- Description: A repository that helps you download the Mars catalog (contains dates and times of events/marsquakes) and helps categorize them by quality and class.
+- Project Use: Will help us get started downloading the data and finding the data that is important to our analysis (marsquakes that occurred where water is in the subsurface)
+
 ## Tools and Packages
 * Python (https://www.python.org/downloads/)
 * Numpy (https://numpy.org/)
