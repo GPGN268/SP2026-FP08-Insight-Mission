@@ -38,6 +38,8 @@ UMD Inisght seismic data downloader:
 * Numpy (https://numpy.org/)
 * Matplotlib (https://matplotlib.org/)
 * Pandas (https://pandas.pydata.org/)
+* ObsPy (https://github.com/obspy/obspy/wiki/)
+
 ## Planned Approach
 
 **First, identify high quality events.**
