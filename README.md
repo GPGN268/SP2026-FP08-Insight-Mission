@@ -42,6 +42,7 @@ UMD Inisght seismic data downloader:
 
 **First, identify high quality events.**
 The MQS Catalog gives quality ratings. We should only use high-quality events, then cross-reference times with the Primary Seismic Bundle to view their raw data. We have found [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
+Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust. We will also look for look for Diverse "Azimuths" (Directions) looking at the Vp/Vs ratio to see where the "nomal rock" is or where there is liquid/brine. 
 
 **Then, find the velocity ratio (Vp/Vs).**
 Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). S-waves lag behind the P-waves, so the rate that the S-waves fall behind over a certain distance should give us a ratio of their velocities. We can then compare the calculated ratios to the known ratios for different materials to determine any changes.
