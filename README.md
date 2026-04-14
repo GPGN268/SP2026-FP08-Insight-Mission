@@ -1,60 +1,72 @@
-# SP2026-FP08-Insight-Mission
-## Names & Handles
-* Petra Elrod (petraelrod42) 
-* Shelby Layne (shelbylaneee) 
-* Addy Peterson (addypeterson)
-## Problem Statement
-  Geophysics plays a significant role in revealing evidence of water on Mars. One piece of geophysical evidence particularly useful is seismology data from NASA's InSight mission. InSight studied the deep interior of Mars by studying seismic activity as well as heat flow. The InSight mission discovered that Mars has three layers: the crust, mantle, and core. InSight also discovered that Mars lacks active tectonic plates because the planet has essentially cooled off. Despite this fact, InSight discovered something contradictory: Mars has “earthquakes” even though there are no tectonic plates to cause them. These marsquakes are created because the Martian crust shrinks and breaks as it cools. These seismic waves also produce distinct signals when they pass through rock versus when they pass through water. For example, P waves travel through both liquids and solids while S waves can only travel through solids. These marsquakes proved to be very important for investigating water in the Martian subsurface, because marsquakes and meteoroid impacts are the only source of seismic activity on the planet, unlike Earth where we can produce our own seismic waves for investigation.
-    
-  The main question we will be answering during our final project is: How can variations in Vp/Vs ratios from NASA's Insight data indicate volatile-rich zones in Mars' shallow crust? The hypothesis that will guide our project is: Because S waves cannot travel through liquid, there should be a significant increase in Vp/Vs ratios when marsquake seismic waves pass through liquid vs when they pass through solid rock.
+<img alt="ObsPy: A Python Toolbox for seismology/seismological observatories." class="right" style="width: 60%" src="https://raw.github.com/obspy/website/master/logo/obspy_logo_full_highres.png" />
 
-## Datasets
-The Primary Seismic Bundle: 
-- Description: Includes raw waveforms, ASCII tables, and the crucial "Derived" products like velocity models.
-- Project Use: Used to extract high-frequency waveforms for local events to perform manual phase picking and spectral analysis.
-- Publisher: PDS Geosciences (GEO) Node
-- DOI: 10.17189/1517570
-- https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/
-  
-Marsquake Service (MQS) Catalog:
-- Description: A derived event catalog containing metadata for all detected marsquakes, including quality ratings and distance estimates.
-- Project Use: Provides the "start times" for $P$ and $S$ wave arrivals, which are the fundamental variables for calculating our $V_p/V_s$ ratios.
-- Publisher: ETH Zürich (Swiss Federal Institute of Technology)
-- DOI: 10.12686/a21
-- https://www.insight.ethz.ch/en/seismicity/catalog/v14/
-  
-Derived Interior Models:
-- Description: A collection of 1D seismic velocity models (Vp and Vs vs. Depth) developed by the mission’s science team.
-- Project Use: Serves as the Control Group. We will compare our calculated ratios against these "dry" models to identify anomalies that suggest volatile-rich zones.
-- Collection LID: urn:nasa:pds:insight_seis:data_derivedKey
-- https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/data_derived/
+[![NumFOCUS affiliated project](https://numfocus.org/wp-content/uploads/2018/01/optNumFocus_LRG.png)](https://numfocus.org/sponsored-projects/affiliated-projects)
 
-UMD Inisght seismic data downloader:
-- Description: A repository that helps you download the Mars catalog (contains dates and times of events/marsquakes) and helps categorize them by quality and class.
-- Project Use: Will help us get started downloading the data and finding the data that is important to our analysis (marsquakes that occurred where water is in the subsurface)
+[![Github Action Status](https://github.com/obspy/obspy/workflows/tests/badge.svg?event=push)](https://github.com/obspy/obspy/actions)
+[![Coverage Status](https://codecov.io/gh/obspy/obspy/branch/master/graph/badge.svg)](https://codecov.io/gh/obspy/obspy)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/obspy.svg)](https://pypi.python.org/pypi/obspy/)
 
-## Tools and Packages
-* Python (https://www.python.org/downloads/)
-* Numpy (https://numpy.org/)
-* Matplotlib (https://matplotlib.org/)
-* Pandas (https://pandas.pydata.org/)
-## Planned Approach
+[![License](https://img.shields.io/pypi/l/obspy.svg)](https://pypi.python.org/pypi/obspy/)
+[![LGPLv3](https://www.gnu.org/graphics/lgplv3-88x31.png)](https://www.gnu.org/licenses/lgpl.html)
 
-**First, identify high quality events.**
-The MQS Catalog gives quality ratings. We should only use high-quality events, then cross-reference times with the Primary Seismic Bundle to view their raw data. We have found [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
-Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust. We will also look for look for Diverse "Azimuths" (Directions) looking at the Vp/Vs ratio to see where the "nomal rock" is or where there is liquid/brine. 
+[![PyPI Version](https://img.shields.io/pypi/v/obspy.svg)](https://pypi.python.org/pypi/obspy)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19005357.svg)](https://doi.org/10.5281/zenodo.19005357)
+[![Conda](https://img.shields.io/conda/dn/conda-forge/obspy?label=conda%20downloads)](https://anaconda.org/conda-forge/obspy)
 
-**Then, find the velocity ratio (Vp/Vs).**
-Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). S-waves lag behind the P-waves, so the rate that the S-waves fall behind over a certain distance should give us a ratio of their velocities. We can then compare the calculated ratios to the known ratios for different materials to determine any changes.
+[![Discourse status](https://img.shields.io/discourse/status?server=https%3A%2F%2Fdiscourse.obspy.org)](https://discourse.obspy.org)
+[![Gitter](https://badges.gitter.im/JoinChat.svg)](https://gitter.im/obspy/obspy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Announcements Mailing List](https://img.shields.io/badge/mailing%20list-announcements-blue)](https://mail.python.org/mailman3/lists/obspy.python.org/)
 
-**Next, compare against the control gorup.**
-Our control group was the Derived Interior Models, so we can compare our ratios to the ratios from the control group to find any discrepencies. If our ratios do not match the Derived Interior Models, we could have evidence for a volatile zone.
+<a rel="me" href="https://fosstodon.org/@obspy"><img src="https://img.shields.io/mastodon/follow/109309284431089274?domain=https%3A%2F%2Ffosstodon.org&style=social" alt="Mastodon Follow" /></a>
 
-**Last, we synthesize our results and map.**
-By mapping our results, we should be able to see any areas with a pattern of volatiles to determine high-probability zones for water, like specific areas or depths. 
+ObsPy is an open-source project dedicated to provide a **Python framework for processing seismological** data. It provides parsers for common file formats, clients to access data centers and seismological signal processing routines which allow the manipulation of seismological time series (see [Beyreuther et al. 2010](http://www.seismosoc.org/publications/SRL/SRL_81/srl_81-3_es/), [Megies et al. 2011](http://www.annalsofgeophysics.eu/index.php/annals/article/view/4838), [Krischer et al. 2015](http://iopscience.iop.org/article/10.1088/1749-4699/8/1/014003)).
 
-## Anticipated Challenges
+The goal of the ObsPy project is to facilitate **rapid application development for seismology**.
 
-**No triangulation:** On Earth, multiple stations help to triangulate the exact location of a quake. InSight is one lander, so it is difficult to approximate distance or location. Our Vp/Vs ratios might be relatively accurate, but we will likely have a hard time mapping since we only have one source of data. 
+ObsPy is licensed under the GNU Lesser General Public License (LGPL) v3.0.
 
-**Data volume:** The volume and format of data is extremely dense. Many pieces of data come in MiniSEED format, or in different formats for each dataset, so we will need to convert them to more readable files that are compatible with each other in order to make comparisons. To do this, we may need to find other geophysics software that would do the heavy lifting.
+A one-hour introduction to ObsPy is [available at YouTube](https://www.youtube.com/watch?v=kFwdjfiK4gk).
+
+#### [Read more in our GitHub wiki](https://github.com/obspy/obspy/wiki)
+
+### Installation
+
+Installation instructions can be found in the [wiki](https://github.com/obspy/obspy/wiki#installation).
+
+### Getting started
+
+Read about how to get started in the [wiki](https://github.com/obspy/obspy/wiki#getting-started) and in our [**Tutorial** section in the documentation](http://docs.obspy.org/tutorial/).
+
+ObsPy Tutorial notebooks -- and much more on specific seismology topics -- can also be found on [**Seismo-Live**](http://seismo-live.org/), both as a static preview and as interactively runnable version.
+
+[![Link to Seismo-Live](https://user-images.githubusercontent.com/1842780/75337134-b4310a80-588c-11ea-8ed2-dbabdedaedfc.png)](http://seismo-live.org/)
+
+```python
+from obspy import read
+st = read()  # load example seismogram
+st.filter(type='highpass', freq=3.0)
+st = st.select(component='Z')
+st.plot()
+```
+
+![Example waveform Plot](https://user-images.githubusercontent.com/1842780/75334711-9d88b480-5888-11ea-8bc8-0bfe7021d79e.png)
+
+### Documentation and Changelog
+
+The **detailed changelog** is available [here](CHANGELOG.txt), our docs can be found at [docs.obspy.org](http://docs.obspy.org/).
+
+### Contributing
+
+Please see details on how to contribute to the project [here](CONTRIBUTING.md).
+
+### References
+
+  * Moritz Beyreuther, Robert Barsch, Lion Krischer, Tobias Megies, Yannik Behr and Joachim Wassermann (2010), [ObsPy: A Python Toolbox for Seismology](http://www.seismosoc.org/publications/SRL/SRL_81/srl_81-3_es/), _SRL_, 81(3), 530-533,  doi:`10.1785/gssrl.81.3.530`.
+  * Tobias Megies, Moritz Beyreuther, Robert Barsch, Lion Krischer, Joachim Wassermann (2011), [ObsPy – What can it do for data centers and observatories?](http://www.annalsofgeophysics.eu/index.php/annals/article/view/4838) _Annals Of Geophysics_, 54(1), 47-58, doi:`10.4401/ag-4838`.
+  * Lion Krischer, Tobias Megies, Robert Barsch, Moritz Beyreuther, Thomas Lecocq, Corentin Caudron and Joachim Wassermann (2015), [ObsPy: a bridge for seismology into the scientific Python ecosystem](http://iopscience.iop.org/1749-4699/8/1/014003/), _Computational Science & Discovery_, 8(1), 014003, doi:`10.1088/1749-4699/8/1/014003`
+  * [concept DOI, that always resolves to latest ObsPy versions: `10.5281/zenodo.1040769`](https://doi.org/10.5281/zenodo.1040769) (see [Zenodo FAQ](http://help.zenodo.org/#versioning))
+  * [specific version DOIs for all released ObsPy versions](https://zenodo.org/search?q=parent.id%3A6645831&f=allversions%3Atrue&l=list&p=1&s=10&sort=version) (search "obspy" on zenodo for older versions)
+
+### Impact
+
+<img src='https://github.com/user-attachments/assets/bde02dde-8644-4bcf-8f66-481edf108293'>
