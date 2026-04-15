@@ -43,14 +43,22 @@ UMD Inisght seismic data downloader:
 
 ## Planned Approach
 
-**First, identify high quality events.**
-The MQS Catalog gives quality ratings. We should only use high-quality events, then cross-reference times with the Primary Seismic Bundle to view their raw data. We have found [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
-Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust. We will also look for look for Diverse "Azimuths" (Directions) looking at the Vp/Vs ratio to see where the "nomal rock" is or where there is liquid/brine. 
+**1. Identify high quality events**
+The MQS Catalog gives quality ratings. We will process this catalog and output the high-quality events (A and B), then cross-reference these event id's with the Primary Seismic Bundle to view their raw data. Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust.
 
-**Then, find the velocity ratio (Vp/Vs).**
-Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). S-waves lag behind the P-waves, so the rate that the S-waves fall behind over a certain distance should give us a ratio of their velocities. We can then compare the calculated ratios to the known ratios for different materials to determine any changes.
+**2. Identify arrival times of waves**
+To calculate the Vp/Vs ratios we will use the equation: ((tS-tP)/((tP-t0))+1 where tS = arrival time of S wave, tP = arrival time of P wave, and t0 = origin time. We will use xml parsers to locate these measurements for each quality event.
 
-**Next, compare against the control gorup.**
+**3. Calculate Vp/Vs Ratios**
+Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). We will write a function that loops over each event and plugs the respective times into the equation: ((tS-tP)/((tP-t0))+1. We can then compare the calculated ratios to the known ratios for different materials to determine any changes.
+
+**4. Map and Analyze Vp/Vs Ratios**
+Once we have calculated the Vp/Vs ratios for each quality event, we will compare them and create visuals. We hypothesize that water is located in the subsurface of the locations of the events that have significantly high Vp/Vs ratios. 
+
+
+We have found [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
+
+**Next, compare against the control group.**
 Our control group was the Derived Interior Models, so we can compare our ratios to the ratios from the control group to find any discrepencies. If our ratios do not match the Derived Interior Models, we could have evidence for a volatile zone.
 
 **Last, we synthesize our results and map.**
