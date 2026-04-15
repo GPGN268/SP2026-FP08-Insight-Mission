@@ -32,6 +32,7 @@ Derived Interior Models:
 UMD Inisght seismic data downloader:
 - Description: A repository that helps you download the Mars catalog (contains dates and times of events/marsquakes) and helps categorize them by quality and class.
 - Project Use: Will help us get started downloading the data and finding the data that is important to our analysis (marsquakes that occurred where water is in the subsurface)
+- https://github.com/UMD-InSight/InSight-seismic-data-downloader.git
 
 ## Tools and Packages
 * Python (https://www.python.org/downloads/)
