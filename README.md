@@ -47,7 +47,8 @@ UMD Inisght seismic data downloader:
 The MQS Catalog gives quality ratings. We will process this catalog and output the high-quality events (A and B), then cross-reference these event id's with the Primary Seismic Bundle to view their raw data. Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust.
 
 **2. Identify arrival times of waves**
-To calculate the Vp/Vs ratios we will use the equation: $$
+To calculate the Vp/Vs ratios we will use the equation: 
+$$
 \frac{V_p}{V_s} = \frac{t_S - t_0}{t_P - t_0}
 $$
 ((tS-tP)/((tP-t0))+1 where tS = arrival time of S wave, tP = arrival time of P wave, and t0 = origin time. We will use xml parsers to locate these measurements for each quality event.
