@@ -63,7 +63,7 @@ By mapping our results, we should be able to see any areas with a pattern of vol
 
 ## Anticipated Challenges
 
-**We don't find any significantly large Vp/Vs ratios** If this occurred, we would not be able to say that seismic data contains evidence that there is water underneath the Martian subsurface. We would not be able to make further analysis about our project or come to a significant conclusion.
+**We don't find any significantly large Vp/Vs ratios:** If this occurred, we would not be able to say that seismic data contains evidence that there is water underneath the Martian subsurface. We would not be able to make further analysis about our project or come to a significant conclusion.
 
 **No triangulation:** On Earth, multiple stations help to triangulate the exact location of a quake. InSight is one lander, so it is difficult to approximate distance or location. Our Vp/Vs ratios might be relatively accurate, but we will likely have a hard time mapping since we only have one source of data. 
 
