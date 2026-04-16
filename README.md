@@ -44,31 +44,26 @@ UMD Inisght seismic data downloader:
 ## Planned Approach
 
 **1. Identify high quality events**
-The MQS Catalog gives quality ratings. We will process this catalog and output the high-quality events (A and B), then cross-reference these event id's with the Primary Seismic Bundle to view their raw data. Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust.
+The MQS Catalog gives quality ratings. We will process this catalog and output the high-quality events (A and B), then cross-reference these event id's with the Primary Seismic Bundle to view their raw data. Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust. We will accomplish this by using the [UMD Insight Seismic Data Downloader](https://github.com/UMD-InSight/InSight-seismic-data-downloader.git)
 
 **2. Identify arrival times of waves**
-To calculate the Vp/Vs ratios we will use the equation: 
-$$
-\frac{V_p}{V_s} = \frac{t_S - t_0}{t_P - t_0}
-$$
-((tS-tP)/((tP-t0))+1 where tS = arrival time of S wave, tP = arrival time of P wave, and t0 = origin time. We will use xml parsers to locate these measurements for each quality event.
+To calculate the Vp/Vs ratios we will use the equation: ((tS-tP)/((tP-t0))+1 where tS = arrival time of S wave, tP = arrival time of P wave, and t0 = origin time. We will use xml parsers to locate these measurements for each quality event from step 1.
 
 **3. Calculate Vp/Vs Ratios**
-Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). We will write a function that loops over each event and plugs the respective times into the equation: ((tS-tP)/((tP-t0))+1. We can then compare the calculated ratios to the known ratios for different materials to determine any changes.
+Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). We will write a function that loops over each event and plugs the respective times into the equation: ((tS-tP)/((tP-t0))+1. 
 
 **4. Map and Analyze Vp/Vs Ratios**
-Once we have calculated the Vp/Vs ratios for each quality event, we will compare them and create visuals. We hypothesize that water is located in the subsurface of the locations of the events that have significantly high Vp/Vs ratios. 
+Once we have calculated the Vp/Vs ratios for each quality event, we will compare them and create visuals. We hypothesize that water is located in the subsurface of the locations of events that have significantly high Vp/Vs ratios. This would be when we might need to use [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md), a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
 
+**5. Possibly find other data to support our findings**
+Similar to the well-log assignment, we might be able to find porosity, density, or resisitivity data to support our conclusion that there is water in the Martian subsurface.
 
-We have found [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md) which is a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
-
-**Next, compare against the control group.**
-Our control group was the Derived Interior Models, so we can compare our ratios to the ratios from the control group to find any discrepencies. If our ratios do not match the Derived Interior Models, we could have evidence for a volatile zone.
-
-**Last, we synthesize our results and map.**
-By mapping our results, we should be able to see any areas with a pattern of volatiles to determine high-probability zones for water, like specific areas or depths. 
+**6. synthesize our results and map.**
+By mapping our results, we should be able to see any areas with a pattern of volatiles to determine high-probability zones for water, like specific areas or depths. This is also the time when we summarize our findings and write our introduction! 
 
 ## Anticipated Challenges
+
+**We don't find any significantly large Vp/Vs ratios** If this occurred, we would not be able to say that seismic data contains evidence that there is water underneath the Martian subsurface. We would not be able to make further analysis about our project or come to a significant conclusion.
 
 **No triangulation:** On Earth, multiple stations help to triangulate the exact location of a quake. InSight is one lander, so it is difficult to approximate distance or location. Our Vp/Vs ratios might be relatively accurate, but we will likely have a hard time mapping since we only have one source of data. 
 
