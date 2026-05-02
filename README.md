@@ -58,16 +58,19 @@ UMD Inisght seismic data downloader:
 ## Planned Approach
 
 **1. Research Data and Problem**
+
 **2. Data Acquisition & Pre-processing**
   - Parse the NASA InSight QuakeML catalog, extracting event IDs, magnitudes, and high-quality phase arrivals (P and S wave travel times)
   - Convert angular distance (degrees) into surface kilometers using Martian-specific radii to enable physical depth estimations
   - Use parsed data and Catalog Data to create a final dataset to analyze
   - Implement a "Physical Reality" filter to remove mathematical outliers (ratios <1.0 or >5.0) caused by seismic noise or misidentified phase picks.
+    
 **3. Quantitative Analysis**
   - Identify High quality events: use A and B quality events that are "Broadband" and "Low Frequency" to identify volatile rich zones
   - Velocity Ratio Calculation: Compute the Vp/Vs ratio for events to examine the properties of the crust.
   - Mechanical Modeling: Derive Poisson’s Ratio from velocity data to transition from signal observations to rock mechanics and stiffness profiles.
   - Depth Estimation: Apply a linear dive-depth model to project surface arrivals into a 3D subsurface context.
+    
 **4. Visualization & Interpretation**
   - Subsurface Profiling: vertical depth-vs-ratio profile 
   - Global Shell Modeling: Visualize dry rocks and global brine layer 
