@@ -8,7 +8,7 @@
 This project analyzes seismic velocity ratios (Vp/Vs) from the NASA InSight mission to investigate the presence of liquid volatiles within the Martian crust. Our results identify a transition zone at depth, suggesting a potential global brine layer.
 
 ## How to use this Repository
-This repository is organized to allow for easy navigation of our seismic analysis and findings. Our final interpreted results can be found in the primary Jupyter Notebook located in the root directory. The directory is structures into a few folders to reference our process through obtaining, cleaning, nad analysing the data. Below are the important components to know about in order to run and understand our analysis: 
+This repository is organized to allow for easy navigation of our seismic analysis and findings. Our final interpreted results can be found in the primary Jupyter Notebook located in the root directory. The directory is structured into a few folders to reference our process through obtaining, cleaning, and analysing the data. Below are the important components to know about in order to run and understand our analysis: 
 - environment.yml: The Conda environment file containing all necessary libraries to reproduce our research.
 - marsquakes_data_frame: processed dataset for this project, derived from the InSight Marsquake Service (MQS) Catalog
 - events_mars_extended_multiorigin_v14_2023-01-01.xml: The raw QuakeML event catalog sourced from the NASA PDS.
@@ -78,7 +78,7 @@ UMD Inisght seismic data downloader:
 
 ## Anticipated Challenges
 
-**Raw Catalog Parsing & Data Extraction:** Our primary challenge was the lack of a pre-formatted tabular dataset for Martian seismic events from the insight mission. Our research required parsing a raw QuakeML (XML) catalog from the NASA PDS to extract specific seismic phase arrivals for p and s waves. Developing using an xml parser and developing a script to navigate nested specific XML tags was a significant technical challenge that was required before we could use the data for analysis
+**Raw Catalog Parsing & Data Extraction:** Our primary challenge was the lack of a pre-formatted tabular dataset for Martian seismic events from the insight mission. Our research required parsing a raw QuakeML (XML) catalog from the NASA PDS to extract specific seismic phase arrivals for p and s waves. Developing using an xml parser and developing a script to navigate nested specific XML tags was a significant technical challenge that was required before we could use the data for analysis.
 
 **Absence of Event Azimuths:** We were unable to extract any directional data (azimuths) from the QuakeML catalog, and we were unable to do any geographic mapping. We addressed this by pivoting to Radial Shell Modeling and Vertical Depth Profiling, which allowed us to analyze the global distribution of volatiles without requiring directional coordinates.
 
