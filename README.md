@@ -45,15 +45,16 @@ UMD Inisght seismic data downloader:
 
 ## Tools and Packages
 * Python (https://www.python.org/downloads/):
-    - main tool for data visualization and processing
+    - Main tool for data visualization and processing
 * Numpy (https://numpy.org/):
     - Used for mathematical operations, like converting angular distances (degrees) into surface kilometers
 * Matplotlib (https://matplotlib.org/):
-    - primary visualization tool, used to construct our custom geophysical plots
+    - Primary visualization tool, used to construct our custom geophysical plots
 * Pandas (https://pandas.pydata.org/):
-    - used to structure raw seismic arrival data into a queryable dataframe, allowing us to filter events by Quality and calculate Vp/Vs ratios across multiple of events simultaneously.
+    - Used to structure raw seismic arrival data into a queryable dataframe, allowing us to filter events by Quality and calculate Vp/Vs ratios across multiple of events simultaneously.
 * ObsPy (https://github.com/obspy/obspy/wiki/):
-    -
+* Python Standard Library (xml.etree.ElementTree)
+    - Used to create custom parsing engine for the InSight QuakeML files
 
 ## Planned Approach
 
