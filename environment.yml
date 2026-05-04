@@ -1,0 +1,15 @@
+name: GPGN268_MarsProject
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - matplotlib
+  - ipykernel
+  - obspy
+  - pip
+  - pip:
+    - nbformat
+    - lxml

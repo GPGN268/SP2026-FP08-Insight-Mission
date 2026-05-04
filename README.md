@@ -3,6 +3,21 @@
 * Petra Elrod (petraelrod42) 
 * Shelby Layne (shelbylaneee) 
 * Addy Peterson (addypeterson)
+  
+## Summary
+This project analyzes seismic velocity ratios (Vp/Vs) from the NASA InSight mission to investigate the presence of liquid volatiles within the Martian crust. Our results identify a transition zone at depth, suggesting a potential global brine layer.
+
+## How to use this Repository
+This repository is organized to allow for easy navigation of our seismic analysis and findings. Our final interpreted results can be found in the primary Jupyter Notebook located in the root directory. The directory is structured into a few folders to reference our process through obtaining, cleaning, and analysing the data. Below are the important components to know about in order to run and understand our analysis: 
+- environment.yml: The Conda environment file containing all necessary libraries to reproduce our research.
+- marsquakes_data_frame: processed dataset for this project, derived from the InSight Marsquake Service (MQS) Catalog
+- events_mars_extended_multiorigin_v14_2023-01-01.xml: The raw QuakeML event catalog sourced from the NASA PDS.
+- final_marsquakes_data_frame.csv: The processed dataframe containing all calculated velocity ratios, estimated dive depths, and event qualities used for our figures.
+- Final_Analysis.ipynb notebook: This is our final notebook. It contains the end-to-end workflow including:
+    - XML parsing of the NASA InSight Marsquake Catalog
+    - Vp/Vs ratio and Poisson’s Ratio calculations
+    - Final visualizations
+      
 ## Problem Statement
   Geophysics plays a significant role in revealing evidence of water on Mars. One piece of geophysical evidence particularly useful is seismology data from NASA's InSight mission. InSight studied the deep interior of Mars by studying seismic activity as well as heat flow. The InSight mission discovered that Mars has three layers: the crust, mantle, and core. InSight also discovered that Mars lacks active tectonic plates because the planet has essentially cooled off. Despite this fact, InSight discovered something contradictory: Mars has “earthquakes” even though there are no tectonic plates to cause them. These marsquakes are created because the Martian crust shrinks and breaks as it cools. These seismic waves also produce distinct signals when they pass through rock versus when they pass through water. For example, P waves travel through both liquids and solids while S waves can only travel through solids. These marsquakes proved to be very important for investigating water in the Martian subsurface, because marsquakes and meteoroid impacts are the only source of seismic activity on the planet, unlike Earth where we can produce our own seismic waves for investigation.
     
@@ -22,12 +37,6 @@ Marsquake Service (MQS) Catalog:
 - Publisher: ETH Zürich (Swiss Federal Institute of Technology)
 - DOI: 10.12686/a21
 - https://www.insight.ethz.ch/en/seismicity/catalog/v14/
-  
-Derived Interior Models:
-- Description: A collection of 1D seismic velocity models (Vp and Vs vs. Depth) developed by the mission’s science team.
-- Project Use: Serves as the Control Group. We will compare our calculated ratios against these "dry" models to identify anomalies that suggest volatile-rich zones.
-- Collection LID: urn:nasa:pds:insight_seis:data_derivedKey
-- https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/data_derived/
 
 UMD Inisght seismic data downloader:
 - Description: A repository that helps you download the Mars catalog (contains dates and times of events/marsquakes) and helps categorize them by quality and class.
@@ -35,36 +44,43 @@ UMD Inisght seismic data downloader:
 - https://github.com/UMD-InSight/InSight-seismic-data-downloader.git
 
 ## Tools and Packages
-* Python (https://www.python.org/downloads/)
-* Numpy (https://numpy.org/)
-* Matplotlib (https://matplotlib.org/)
-* Pandas (https://pandas.pydata.org/)
-* ObsPy (https://github.com/obspy/obspy/wiki/)
+* Python (https://www.python.org/downloads/):
+    - Main tool for data visualization and processing
+* Numpy (https://numpy.org/):
+    - Used for mathematical operations, like converting angular distances (degrees) into surface kilometers
+* Matplotlib (https://matplotlib.org/):
+    - Primary visualization tool, used to construct our custom geophysical plots
+* Pandas (https://pandas.pydata.org/):
+    - Used to structure raw seismic arrival data into a queryable dataframe, allowing us to filter events by Quality and calculate Vp/Vs ratios across multiple of events simultaneously.
+* ObsPy (https://github.com/obspy/obspy/wiki/):
+* Python Standard Library (xml.etree.ElementTree)
+    - Used to create custom parsing engine for the InSight QuakeML files
 
 ## Planned Approach
 
-**1. Identify high quality events**
-The MQS Catalog gives quality ratings. We will process this catalog and output the high-quality events (A and B), then cross-reference these event id's with the Primary Seismic Bundle to view their raw data. Once we find the specific events, we need to identify volatile-rich zones (like liquid water or brines) by prioritizing "Broadband" and "Low Frequency" Events because these waves have longer wavelengths that "see" deeper into the crust. We will accomplish this by using the [UMD Insight Seismic Data Downloader](https://github.com/UMD-InSight/InSight-seismic-data-downloader.git)
+**1. Research Data and Problem**
 
-**2. Identify arrival times of waves**
-To calculate the Vp/Vs ratios we will use the equation: ((tS-tP)/((tP-t0))+1 where tS = arrival time of S wave, tP = arrival time of P wave, and t0 = origin time. We will use xml parsers to locate these measurements for each quality event from step 1.
-
-**3. Calculate Vp/Vs Ratios**
-Since velocity is v=distance/time, and the quakes have to travel the same distance to reach the lander, Vp/Vs can be estimated using the arrival times of the p and s-waves (distance would be a constant). We will write a function that loops over each event and plugs the respective times into the equation: ((tS-tP)/((tP-t0))+1. 
-
-**4. Map and Analyze Vp/Vs Ratios**
-Once we have calculated the Vp/Vs ratios for each quality event, we will compare them and create visuals. We hypothesize that water is located in the subsurface of the locations of events that have significantly high Vp/Vs ratios. This would be when we might need to use [ObsPy](https://github.com/GPGN268/SP2026-FP08-Insight-Mission/edit/main/README.md), a Python library that should help us analyze the different parts of the data, like arrival times of the P and S-waves.
-
-**5. Possibly find other data to support our findings**
-Similar to the well-log assignment, we might be able to find porosity, density, or resisitivity data to support our conclusion that there is water in the Martian subsurface.
-
-**6. synthesize our results and map.**
-By mapping our results, we should be able to see any areas with a pattern of volatiles to determine high-probability zones for water, like specific areas or depths. This is also the time when we summarize our findings and write our introduction! 
+**2. Data Acquisition & Pre-processing**
+  - Parse the NASA InSight QuakeML catalog, extracting event IDs, magnitudes, and high-quality phase arrivals (P and S wave travel times)
+  - Convert angular distance (degrees) into surface kilometers using Martian-specific radii to enable physical depth estimations
+  - Use parsed data and Catalog Data to create a final dataset to analyze
+  - Implement a "Physical Reality" filter to remove mathematical outliers (ratios <1.0 or >5.0) caused by seismic noise or misidentified phase picks.
+    
+**3. Quantitative Analysis**
+  - Identify High quality events: use A and B quality events that are "Broadband" and "Low Frequency" to identify volatile rich zones
+  - Velocity Ratio Calculation: Compute the Vp/Vs ratio for events to examine the properties of the crust.
+  - Mechanical Modeling: Derive Poisson’s Ratio from velocity data to transition from signal observations to rock mechanics and stiffness profiles.
+  - Depth Estimation: Apply a linear dive-depth model to project surface arrivals into a 3D subsurface context.
+    
+**4. Visualization & Interpretation**
+  - Subsurface Profiling: vertical depth-vs-ratio profile 
+  - Global Shell Modeling: Visualize dry rocks and global brine layer 
+  - Reliability Assessment: compare and contrast event quality grades (A, B) with our Vp/Vs ratios to find any correlations
 
 ## Anticipated Challenges
 
-**We don't find any significantly large Vp/Vs ratios:** If this occurred, we would not be able to say that seismic data contains evidence that there is water underneath the Martian subsurface. We would not be able to make further analysis about our project or come to a significant conclusion.
+**Raw Catalog Parsing & Data Extraction:** Our primary challenge was the lack of a pre-formatted tabular dataset for Martian seismic events from the insight mission. Our research required parsing a raw QuakeML (XML) catalog from the NASA PDS to extract specific seismic phase arrivals for p and s waves. Developing using an xml parser and developing a script to navigate nested specific XML tags was a significant technical challenge that was required before we could use the data for analysis.
 
-**No triangulation:** On Earth, multiple stations help to triangulate the exact location of a quake. InSight is one lander, so it is difficult to approximate distance or location. Our Vp/Vs ratios might be relatively accurate, but we will likely have a hard time mapping since we only have one source of data. 
+**Absence of Event Azimuths:** We were unable to extract any directional data (azimuths) from the QuakeML catalog, and we were unable to do any geographic mapping. We addressed this by pivoting to Radial Shell Modeling and Vertical Depth Profiling, which allowed us to analyze the global distribution of volatiles without requiring directional coordinates.
 
-**Data volume:** The volume and format of data is extremely dense. Many pieces of data come in MiniSEED format, or in different formats for each dataset, so we will need to convert them to more readable files that are compatible with each other in order to make comparisons. To do this, we may need to find other geophysics software that would do the heavy lifting.
+**Seismic Signal-to-Noise Ratio:** Martian data is heavily impacted by environmental noise (wind/thermal). To prevent unphysical velocity ratios from skewing results, we implemented a filer (clipping ratios between 1.4 and 2.4) and utilized the higher quality events for better data. 
