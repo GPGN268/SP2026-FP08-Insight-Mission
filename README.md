@@ -85,7 +85,10 @@ UMD Inisght seismic data downloader:
 
 **Seismic Signal-to-Noise Ratio:** Martian data is heavily impacted by environmental noise (wind/thermal). To prevent unphysical velocity ratios from skewing results, we implemented a filer (clipping ratios between 1.4 and 2.4) and utilized the higher quality events for better data.
 
-## Contribution Statement 
+## Contribution Statement
+* Addy:
+* Petra:
+* Shelby:
 
 ## References
 - InSight. (2018). Lockheed Martin. https://www.lockheedmartin.com/en-us/products/insight-mars-lander.html
