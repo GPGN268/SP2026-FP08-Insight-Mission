@@ -55,6 +55,8 @@ UMD Inisght seismic data downloader:
 * ObsPy (https://github.com/obspy/obspy/wiki/):
 * Python Standard Library (xml.etree.ElementTree)
     - Used to create custom parsing engine for the InSight QuakeML files
+ * Scipy (https://scipy.org/):
+    - Used to produce a better representation of a rolling average than possible using only Pandas and Numpy. Also used to calculate a confidence interval for our prediction models.
 
 ## Planned Approach
 
