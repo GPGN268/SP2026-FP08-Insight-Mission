@@ -83,4 +83,23 @@ UMD Inisght seismic data downloader:
 
 **Absence of Event Azimuths:** We were unable to extract any directional data (azimuths) from the QuakeML catalog, and we were unable to do any geographic mapping. We addressed this by pivoting to Radial Shell Modeling and Vertical Depth Profiling, which allowed us to analyze the global distribution of volatiles without requiring directional coordinates.
 
-**Seismic Signal-to-Noise Ratio:** Martian data is heavily impacted by environmental noise (wind/thermal). To prevent unphysical velocity ratios from skewing results, we implemented a filer (clipping ratios between 1.4 and 2.4) and utilized the higher quality events for better data. 
+**Seismic Signal-to-Noise Ratio:** Martian data is heavily impacted by environmental noise (wind/thermal). To prevent unphysical velocity ratios from skewing results, we implemented a filer (clipping ratios between 1.4 and 2.4) and utilized the higher quality events for better data.
+
+## Contribution Statement
+* Addy:
+* Petra:
+* Shelby:
+
+## References
+- InSight. (2018). Lockheed Martin. https://www.lockheedmartin.com/en-us/products/insight-mars-lander.html
+
+- NASA’s InSight Records Monster Quake on Mars. (2022, May 9). NASA Jet Propulsion Laboratory (JPL). https://www.jpl.nasa.gov/news/nasas-insight-records-monster-quake-on-mars/ 
+
+- Earthquake Waves. (2024). Pacific Northwest Seismic Network. https://pnsn.org/education/seismology/earthquake-waves 
+
+- Hyndman, R. D. (2003). Poisson’s ratio in the oceanic crust — a review. Tectonophysics, 59(1-4), 321–333. https://doi.org/10.1016/0040-1951(79)90053-2 
+
+- Knapmeyer-Endrun, B., Panning, M. P., Bissig, F., Joshi, R., Khan, A., Kim, D., ... & Banerdt, W. B. (2021). Thickness and structure of the Martian crust from InSight. Science, 373(6553), 438-443. https://doi.org/10.1126/science.abf8966
+Wright, V., Khan, A., & Manga, M. (2024). Liquid water on Mars: Seismic evidence from InSight. Proceedings of the National Academy of Sciences, 121(35). https://doi.org/10.1073/pnas.2409983121
+
+
