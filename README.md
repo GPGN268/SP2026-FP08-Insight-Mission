@@ -88,7 +88,7 @@ UMD Inisght seismic data downloader:
 **Seismic Signal-to-Noise Ratio:** Martian data is heavily impacted by environmental noise (wind/thermal). To prevent unphysical velocity ratios from skewing results, we implemented a filer (clipping ratios between 1.4 and 2.4) and utilized the higher quality events for better data.
 
 ## Contribution Statement
-* Addy:
+* Addy: I was in charge of making probability plots. Using what we learned in class and what I could find on the internet, I made a plot that used PDFs to help us estimate the most probable zones to find volatiles. My contribution was in my interest and application of statistical modeling, ultimately allowing us to apply our findings and explain which findings are significant. In addition to plotting probability densities, I explained how to interpret the plots to make conclusions.
 * Petra:
 * Shelby:
 
