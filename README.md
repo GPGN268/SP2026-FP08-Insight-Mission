@@ -92,7 +92,7 @@ UMD Inisght seismic data downloader:
   
 * Petra:
   
-* Shelby: My main role in this project was organization and communication. Each of us had different project pitches at the beginning but we ultimately decided to go with mine. I communciated my original motivation and goals to my team members and helped assigned tasks on the project board. I also helped locate and download the data as well as contibute to the readme and slideshow. Finally, I applied Poisson's ratio to our Vp/Vs ratio data and created plots to visualize the corellation between the two. 
+* Shelby: My main role in this project was organization and communication. Each of us had different project pitches at the beginning but we ultimately decided to go with mine. I communciated my original motivation and goals to my team members and helped assigned tasks on the project board. I also helped locate and download the data (UMD data downloader) as well as contibute to the readme and slideshow. Finally, I applied Poisson's ratio to our Vp/Vs ratio data and created plots to visualize the corellation between the two. 
 
 ## References
 - InSight. (2018). Lockheed Martin. https://www.lockheedmartin.com/en-us/products/insight-mars-lander.html
