@@ -13,7 +13,7 @@ This repository is organized to allow for easy navigation of our seismic analysi
 - marsquakes_data_frame: processed dataset for this project, derived from the InSight Marsquake Service (MQS) Catalog
 - events_mars_extended_multiorigin_v14_2023-01-01.xml: The raw QuakeML event catalog sourced from the NASA PDS.
 - final_marsquakes_data_frame.csv: The processed dataframe containing all calculated velocity ratios, estimated dive depths, and event qualities used for our figures.
-- Final_Analysis.ipynb notebook: This is our final notebook. It contains the end-to-end workflow including:
+- Final_Mars_Seismic_Analysis.ipynb notebook: This is our final notebook. It contains the end-to-end workflow including:
     - XML parsing of the NASA InSight Marsquake Catalog
     - Vp/Vs ratio and Poisson’s Ratio calculations
     - Final visualizations
