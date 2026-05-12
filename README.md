@@ -89,8 +89,10 @@ UMD Inisght seismic data downloader:
 
 ## Contribution Statement
 * Addy: I was in charge of making probability plots. Using what we learned in class and what I could find on the internet, I made a plot that used PDFs to help us estimate the most probable zones to find volatiles. My contribution was in my interest and application of statistical modeling, ultimately allowing us to apply our findings and explain which findings are significant. In addition to plotting probability densities, I explained how to interpret the plots to make conclusions.
+  
 * Petra:
-* Shelby:
+  
+* Shelby: My main role in this project was organization and communication. Each of us had different project pitches at the beginning but we ultimately decided to go with mine. I communciated my original motivation and goals to my team members and helped assigned tasks on the project board. I also helped locate and download the data as well as contibute to the readme and slideshow. Finally, I applied Poisson's ratio to our Vp/Vs ratio data and created plots to visualize the corellation between the two. 
 
 ## References
 - InSight. (2018). Lockheed Martin. https://www.lockheedmartin.com/en-us/products/insight-mars-lander.html
