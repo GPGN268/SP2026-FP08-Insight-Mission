@@ -5,7 +5,9 @@
 * Addy Peterson (addypeterson)
   
 ## Summary and Results
-This project analyzes seismic velocity ratios (Vp/Vs) from the NASA InSight mission to investigate the presence of liquid volatiles within the Martian crust. Our results identify a transition zone at depth, suggesting a potential global brine layer. Statistical analysis reveals a potential volatile-rich zone around 1470 km from the InSight lander.
+This project analyzes seismic velocity ratios (Vp/Vs) from the NASA InSight mission to investigate the presence of liquid volatiles within the Martian crust. Our results identify a transition zone at depth, suggesting a potential global brine layer. Statistical analysis reveals a potential volatile-rich zone around 1470 km from the InSight lander. 
+
+We are unable to confirm the accuracy of our hypothesis or findings since there is extremely limited research about the location of volatile-rich zones on Mars.
 
 ## How to use this Repository
 This repository is organized to allow for easy navigation of our seismic analysis and findings. Our final interpreted results can be found in the primary Jupyter Notebook located in the root directory. The directory is structured into a few folders to reference our process through obtaining, cleaning, and analysing the data. Below are the important components to know about in order to run and understand our analysis: 
