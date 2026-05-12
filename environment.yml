@@ -8,8 +8,9 @@ dependencies:
   - numpy
   - matplotlib
   - ipykernel
-  - obspy
   - pip
+  - scipy
+  - xarray
   - pip:
     - nbformat
     - lxml
