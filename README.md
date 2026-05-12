@@ -49,7 +49,6 @@ This repository is organized to allow for easy navigation of our seismic analysi
     - Primary visualization tool, used to construct our custom geophysical plots
 * [Pandas](https://pandas.pydata.org/):
     - Used to structure raw seismic arrival data into a queryable dataframe, allowing us to filter events by Quality and calculate Vp/Vs ratios across multiple of events simultaneously.
-* [ObsPy](https://github.com/obspy/obspy/wiki/):
 * [Python Standard Library](xml.etree.ElementTree)
     - Used to create custom parsing engine for the InSight QuakeML files
  * [Scipy](https://scipy.org/):
