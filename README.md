@@ -24,38 +24,35 @@ This repository is organized to allow for easy navigation of our seismic analysi
   The main question we will be answering during our final project is: How can variations in Vp/Vs ratios from NASA's Insight data indicate volatile-rich zones in Mars' shallow crust? The hypothesis that will guide our project is: Because S waves cannot travel through liquid, there should be a significant increase in Vp/Vs ratios when marsquake seismic waves pass through liquid vs when they pass through solid rock.
 
 ## Datasets
-The Primary Seismic Bundle: 
+[The Primary Seismic Bundle](https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/): 
 - Description: Includes raw waveforms, ASCII tables, and the crucial "Derived" products like velocity models.
 - Project Use: Used to extract high-frequency waveforms for local events to perform manual phase picking and spectral analysis.
 - Publisher: PDS Geosciences (GEO) Node
 - DOI: 10.17189/1517570
-- https://pds-geosciences.wustl.edu/insight/urn-nasa-pds-insight_seis/
   
-Marsquake Service (MQS) Catalog:
+[Marsquake Service (MQS) Catalog]( https://www.insight.ethz.ch/en/seismicity/catalog/v14/):
 - Description: A derived event catalog containing metadata for all detected marsquakes, including quality ratings and distance estimates.
 - Project Use: Provides the "start times" for $P$ and $S$ wave arrivals, which are the fundamental variables for calculating our $V_p/V_s$ ratios.
 - Publisher: ETH Zürich (Swiss Federal Institute of Technology)
 - DOI: 10.12686/a21
-- https://www.insight.ethz.ch/en/seismicity/catalog/v14/
 
-UMD Inisght seismic data downloader:
+[UMD Inisght seismic data downloader]( https://github.com/UMD-InSight/InSight-seismic-data-downloader.git):
 - Description: A repository that helps you download the Mars catalog (contains dates and times of events/marsquakes) and helps categorize them by quality and class.
 - Project Use: Will help us get started downloading the data and finding the data that is important to our analysis (marsquakes that occurred where water is in the subsurface)
-- https://github.com/UMD-InSight/InSight-seismic-data-downloader.git
 
 ## Tools and Packages
-* Python (https://www.python.org/downloads/):
+* [Python](https://www.python.org/downloads/):
     - Main tool for data visualization and processing
-* Numpy (https://numpy.org/):
+* [Numpy](https://numpy.org/):
     - Used for mathematical operations, like converting angular distances (degrees) into surface kilometers
-* Matplotlib (https://matplotlib.org/):
+* [Matplotlib](https://matplotlib.org/):
     - Primary visualization tool, used to construct our custom geophysical plots
-* Pandas (https://pandas.pydata.org/):
+* [Pandas](https://pandas.pydata.org/):
     - Used to structure raw seismic arrival data into a queryable dataframe, allowing us to filter events by Quality and calculate Vp/Vs ratios across multiple of events simultaneously.
-* ObsPy (https://github.com/obspy/obspy/wiki/):
-* Python Standard Library (xml.etree.ElementTree)
+* [ObsPy](https://github.com/obspy/obspy/wiki/):
+* [Python Standard Library](xml.etree.ElementTree)
     - Used to create custom parsing engine for the InSight QuakeML files
- * Scipy (https://scipy.org/):
+ * [Scipy](https://scipy.org/):
     - Used to produce a better representation of a rolling average than possible using only Pandas and Numpy. Also used to calculate a confidence interval for our prediction models.
 
 ## Planned Approach
